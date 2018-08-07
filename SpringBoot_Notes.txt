@@ -1,0 +1,82 @@
+Spring Boot Notes:-
+
+02-07-2018
+
+Taken from Mastering Spring Boot 2.0 and Spring Cloud - by Dinesh Rajput.
+
+https://www.safaribooksonline.com/library/view/mastering-spring-boot/9781787127562/3b378248-7a2a-4983-b712-d1741cd90851.xhtml
+
+Essential Key Components of Spring Boot:-
+
+* Spring Boot Starters
+* Automatic configuration
+* Spring Boot CLI 
+* Spring Boot Actuator
+
+
+* Spring Boot Starters:-
+
+<dependencies>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+</dependencies>
+
+"spring-boot-starter-web" - this starter dependency resolves the following transitive dependencies.
+
+	spring-web-*.jar
+	spring-webmvc-*.jar
+	tomcat-*.jar
+	jackson-databind-*.jar
+
+spring-boot-starter-web-services: 	For building applications exposing SOAP web services
+spring-boot-starter-web: 			Build web applications and RESTful applications
+spring-boot-starter-test: 			Write great unit and integration tests
+spring-boot-starter-jdbc: 			Traditional JDBC applications
+spring-boot-starter-hateoas: 		Make your services more RESTful by adding HATEOAS features
+spring-boot-starter-security: 		Authentication and authorization using Spring Security
+spring-boot-starter-data-jpa: 		Spring Data JPA with Hibernate
+spring-boot-starter-cache: 			Enabling the Spring Framework's caching support
+spring-boot-starter-data-rest: 		Expose simple REST services using Spring Data REST
+
+
+--> Spring Boot Starter Parent POM:-
+Defines key version of dependencies and Maven plugins.
+
+<parent>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-parent</artifactId>
+   <version>2.0.2.RELEASE</version>
+   <relativePath/> <!-- lookup parent from repository -->
+</parent>
+
+
+* Spring Boot auto-configuration
+
+Spring Boot Starter reduces a build's dependencies and Spring Boot auto-configuration reduces the Spring configuration.
+
+The @SpringBootApplication annotation has composed functionality from three annotations
+—> @EnableAutoConfiguration, @ComponentScan, and @Configuration.
+
+
+* Spring Boot CLI
+
+1. No import lines used.
+2. No dependent libraries. Detects classes being used in your application and it also knows which Starter dependencies should be used for these classes.
+
+* Spring Boot Actuator
+
+	-> It provides details of all beans configured in the Spring application context.
+	-> Actuator also provides details about Spring Boot's auto-configuration.
+	-> It also ensures all environment variables, system properties, configuration properties, and command-line arguments are available to your application.
+	-> The Actuator gives various metrics pertaining to memory usage, garbage collection, web requests, and data source usage.
+	-> It provides a trace of recent HTTP requests handled by your application.
+	-> It also gives information about the current state of the threads in the Spring Boot application.
+	-> It allows you to monitor production ready features.
+
+Till:-Order of evaluation for overridden properties
+
+
+
+
